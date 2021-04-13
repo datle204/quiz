@@ -1,0 +1,30 @@
+.question-page{
+    width: 40%;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+    padding: 30px;
+    transform: translate(-50%,-50%);
+    top: 30%;
+    left: 50%;
+    position: fixed;
+}
+.list-button{
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.list-button li{
+    list-style: none;
+    padding-bottom: 20px;
+}
+
+
+.next-button{
+    text-align: center;
+    width: 100px;
+    margin: auto;
+}
+
+
+

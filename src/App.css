@@ -37,3 +37,12 @@
     transform: translateY(0px);
   }
 }
+
+
+/* CSS CHUNG */
+
+.container{
+  width: 80%;
+  margin: auto;
+}
+

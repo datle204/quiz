@@ -1,0 +1,13 @@
+.result-page{
+    width: 40%;
+    height: 300px;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+    padding: 30px;
+    transform: translate(-50%,-50%);
+    top: 30%;
+    left: 50%;
+    position: fixed;
+}
+
