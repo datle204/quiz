@@ -1,30 +1,67 @@
-.question-page{
-    width: 40%;
-    margin: auto;
-    border: 1px solid black;
-    text-align: center;
-    padding: 30px;
-    transform: translate(-50%,-50%);
-    top: 30%;
-    left: 50%;
-    position: fixed;
+.question-page {
+  width: 40%;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+  position: fixed;
+  border-radius: 10px;
+  background-color: honeydew;
 }
-.list-button{
-    margin-bottom: 10px;
-    padding-left: 0;
-}
-
-.list-button li{
-    list-style: none;
-    padding-bottom: 20px;
+.list-button {
+  margin-bottom: 10px;
+  padding-left: 0;
 }
 
-
-.next-button{
-    text-align: center;
-    width: 100px;
-    margin: auto;
+.list-button li {
+  list-style: none;
+  padding-bottom: 20px;
 }
 
+.next-button {
+  text-align: center;
+  width: 100px;
+  margin: auto;
+}
+.list-button button {
+  width: 200px;
+  border: none;
+  height: 50px;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: arial;
+  cursor: pointer;
+}
 
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.black {
+  background-color: black;
+}
 
+.red:hover {
+  background-color: rgb(226, 68, 68);
+}
+
+.blue:hover {
+  background-color: rgb(50, 50, 218);
+}
+.green:hover {
+  background-color: rgb(66, 199, 66);
+}
+.black:hover {
+  background-color: rgb(56, 50, 50);
+}

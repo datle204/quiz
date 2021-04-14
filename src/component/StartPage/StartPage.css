@@ -1,16 +1,42 @@
-.start-page{
-    width: 40%;
-    height: 300px;
-    margin: auto;
-    border: 1px solid black;
-    text-align: center;
-    padding: 30px;
-    transform: translate(-50%,-50%);
-    top: 30%;
-    left: 50%;
-    position: fixed;
+.start-page {
+  width: 40%;
+  margin: auto;
+  margin-top: 100px;
+  border: none;
+  text-align: center;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+  position: fixed;
+  border-radius: 10px;
+  background-color: honeydew;
 }
 
+img {
+  width: 60%;
+}
 
+h1 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  color: red;
+}
 
+button.start-btn {
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
 
+button.start-btn:hover {
+  background-color: green;
+}

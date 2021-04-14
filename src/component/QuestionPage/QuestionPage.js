@@ -4,6 +4,7 @@ import { getQuestion } from "../api";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateScore } from "../../features/scoreSlice";
+import { updateQuestion } from "../../features/questionSlice";
 
 export default function QuestionPage() {
   const history = useHistory();
@@ -13,67 +14,60 @@ export default function QuestionPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
 
-
   useEffect(() => {
-    async function fetchData() {
+    async function getData() {
       const { questions } = await getQuestion();
       setQuestions(questions);
-      localStorage.setItem("numberOfQuestions", questions.length);
     }
-    fetchData();
+    getData();
   }, []);
 
+  dispatch(updateQuestion(questions.length));
 
+  questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
+
+  //   CHECK ANSWER
   function checkAnswer(event) {
-   
-    if (event.target.outerText === questions[currentQuestion]?.answer) {
-        console.log(questions[currentQuestion]?.answer);
-        
-        setScore(score+1);
-        setCurrentQuestion(currentQuestion + 1);
-        dispatch(updateScore(score));
+    const answerText = event.target.outerText;
+    if (answerText === questions[currentQuestion]?.answer) {
+      dispatch(updateScore(score + 1));
+      setCurrentQuestion(currentQuestion + 1);
+      setScore(score + 1);
     }
-    if(currentQuestion < questions.length-1){
-        setCurrentQuestion(currentQuestion + 1);
-    }
-    else{
-        history.push("/result");
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      history.push("/result");
     }
   }
 
-
-
- 
-  
-    
-  
-  
   return (
     <div className="container">
       <div className="question-page">
         <h1>
-          Cau hoi {currentQuestion + 1} / {questions.length}
+          Câu hỏi {currentQuestion + 1} / {questions.length}
         </h1>
         <h2>{questions[currentQuestion]?.question}</h2>
+
         <ul className="list-button">
           <li>
-            <button onClick={(event) => checkAnswer(event)}>
-              {questions[currentQuestion]?.option1}
+            <button className="red" onClick={(event) => checkAnswer(event)}>
+              {questions[currentQuestion]?.choices?.[0]}
             </button>
           </li>
           <li>
-            <button onClick={(event) => checkAnswer(event)}>
-              {questions[currentQuestion]?.option2}
+            <button className="blue" onClick={(event) => checkAnswer(event)}>
+              {questions[currentQuestion]?.choices?.[1]}
             </button>
           </li>
           <li>
-            <button onClick={(event) => checkAnswer(event)}>
-              {questions[currentQuestion]?.option3}
+            <button className="green" onClick={(event) => checkAnswer(event)}>
+              {questions[currentQuestion]?.choices?.[2]}
             </button>
           </li>
           <li>
-            <button onClick={(event) => checkAnswer(event)}>
-              {questions[currentQuestion]?.option4}
+            <button className="black" onClick={(event) => checkAnswer(event)}>
+              {questions[currentQuestion]?.choices?.[3]}
             </button>
           </li>
         </ul>

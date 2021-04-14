@@ -10,8 +10,11 @@ export default function StartPage() {
   return (
     <div className="container">
       <div className="start-page">
-        <h1>Quiz</h1>
-        <button onClick={changeToQuestionPage}>Start Quiz</button>
+        <img src="quiz-img.png" alt="startpage-img" />
+        <h1>Have Fun :) </h1>
+        <button className="start-btn" onClick={changeToQuestionPage}>
+          Start Quiz
+        </button>
       </div>
     </div>
   );
