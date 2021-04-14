@@ -28,7 +28,7 @@ export default function QuestionPage() {
 
   //   CHECK ANSWER
   function checkAnswer(event) {
-    const answerText = event.target.outerText.toUpperCase();
+    const answerText = event.target.outerText;
     if (answerText === questions[currentQuestion]?.answer.toUpperCase()) {
       dispatch(updateScore(score + 1));
       setCurrentQuestion(currentQuestion + 1);
