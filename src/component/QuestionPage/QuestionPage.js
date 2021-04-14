@@ -28,8 +28,8 @@ export default function QuestionPage() {
 
   //   CHECK ANSWER
   function checkAnswer(event) {
-    const answerText = event.target.outerText;
-    if (answerText === questions[currentQuestion]?.answer) {
+    const answerText = event.target.outerText.toUpperCase();
+    if (answerText === questions[currentQuestion]?.answer.toUpperCase()) {
       dispatch(updateScore(score + 1));
       setCurrentQuestion(currentQuestion + 1);
       setScore(score + 1);

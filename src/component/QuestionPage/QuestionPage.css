@@ -34,9 +34,10 @@
   border-radius: 10px;
   color: white;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   font-family: arial;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .red {
