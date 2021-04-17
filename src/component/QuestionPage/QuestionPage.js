@@ -40,10 +40,11 @@ export default function QuestionPage() {
       setQuestions(questions);
     }
     getData();
-    questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
+    
     
     // eslint-disable-next-line
   }, []);
+  questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
 
   dispatch(updateQuestion(questions.length));
 
