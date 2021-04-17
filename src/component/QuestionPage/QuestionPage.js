@@ -13,18 +13,39 @@ export default function QuestionPage() {
   const [questions, setQuestions] = useState([{}]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [time, setTimeOut] = useState(60);
+  // eslint-disable-next-line
+  function countDown(){
+    if (time < 1) {
+      setTimeOut(`Hết giờ!`);
+      if (time === 0) {
+        history.push("/result");
+        clearInterval(countDown);
+      }
+    }
+    setTimeOut(time - 1);
+  }
 
   useEffect(() => {
+    const intervalID = setInterval(countDown, 1000);
+    return () => clearInterval(intervalID);
+  }, [time, countDown]);
+
+
+  useEffect(() => {
+    
     async function getData() {
       const { questions } = await getQuestion();
+      countDown();
       setQuestions(questions);
     }
     getData();
+    questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
+    
+    // eslint-disable-next-line
   }, []);
 
   dispatch(updateQuestion(questions.length));
-
-  questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
 
   //   CHECK ANSWER
   function checkAnswer(event) {
@@ -48,6 +69,7 @@ export default function QuestionPage() {
           Câu hỏi {currentQuestion + 1} / {questions.length}
         </h1>
         <h2>{questions[currentQuestion]?.question}</h2>
+        <h2>{time}</h2>
 
         <ul className="list-button">
           <li>
