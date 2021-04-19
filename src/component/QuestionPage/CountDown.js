@@ -5,8 +5,7 @@ export default function CountDown(){
 
     const [time, setTimeOut] = useState(60);
     const history = useHistory();
-
-
+     // eslint-disable-next-line
     function countDown(){
         if (time < 1) {
           setTimeOut(`Hết giờ!`);
