@@ -14,7 +14,6 @@ export default function QuestionPage() {
   const [questions, setQuestions] = useState([{}]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  
 
   useEffect(() => {
     async function getData() {
@@ -22,10 +21,10 @@ export default function QuestionPage() {
       setQuestions(questions);
     }
     getData();
-  },[]);
+  }, []);
 
   questions[currentQuestion]?.choices?.sort(() => Math.random() - 0.5);
-  
+
   dispatch(updateQuestion(questions.length));
 
   //   CHECK ANSWER
@@ -50,7 +49,7 @@ export default function QuestionPage() {
           Câu hỏi {currentQuestion + 1} / {questions.length}
         </h1>
         <h2>{questions[currentQuestion]?.question}</h2>
-        <CountDown></CountDown>
+        {questions[currentQuestion]? <CountDown></CountDown> : <div></div>}
 
         <ul className="list-button">
           <li>
